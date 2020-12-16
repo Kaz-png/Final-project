@@ -1,0 +1,35 @@
+#include <iostream>
+
+#include <random>
+#include <algorithm>
+#include <string>
+#include "Utility.hpp"
+#include "Car.hpp"
+
+bool anyPrime(const std::vector<int>& values);
+
+int main() {
+    auto integers = randomIntegers();
+    int myInts[]={10,6,9,4};
+    std::vector<int> myVector (myInts,myInts+4);
+    std::cout << "Integers: " << integers << "\n";
+    std::cout << "Are there any primes? " << (anyPrime(integers) ? "yes" : "no") << "\n";
+    
+}
+
+bool anyPrime(const std::vector<int>& values) {
+    // TODO: return true if any of the values are prime numbers
+    auto result = false;
+   auto it = std::find_if(values.begin(),values.end(),[i=2](int n){
+        if(n%i==0){
+           return false;
+        }
+        return true;
+    } );
+    if(*it != false){
+        result = true;
+    }
+    
+
+    return result;
+}
