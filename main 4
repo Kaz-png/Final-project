@@ -20,10 +20,12 @@ int main() {
 bool anyPrime(const std::vector<int>& values) {
     // TODO: return true if any of the values are prime numbers
     auto result = false;
-   auto it = std::find_if(values.begin(),values.end(),[i=2](int n){
+   auto it = std::find_if(values.begin(),values.end(),[](int n){
+        int i=2;
         if(n%i==0){
            return false;
         }
+        i++;
         return true;
     } );
     if(*it != false){
